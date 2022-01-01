@@ -41,15 +41,13 @@ public class SubActivity extends AppCompatActivity {
             Intent intentSub = new Intent();
             String str = editText.getText().toString();
 
-            if (str != null) {
+            if (!str.equals("")) {
                 //MainActivityに値を渡す。
                 intentSub.putExtra(MainActivity.EXTRA_MESSAGE, str);
+                editText.setText("");
+                setResult(RESULT_OK, intentSub);
+                finish();
             }
-
-            editText.setText("");
-            setResult(RESULT_OK, intentSub);
-
-            finish();
         });
     }
     //ライフサイクル
